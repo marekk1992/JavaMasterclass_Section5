@@ -9,13 +9,13 @@ public class FirstLastDigitSum {
 
         if (number < 10) {
             return number * 2;
-        } else {
-            int lastNumber = number % 10;
-            while (number >= 10) {
-                number /= 10;
-            }
-            int firstNumber = number;
-            return firstNumber + lastNumber;
         }
+
+        int lastNumber = number % 10;
+        while (number >= 10) {
+            number /= 10;
+        }
+        int firstNumber = number;
+        return firstNumber + lastNumber;
     }
 }
