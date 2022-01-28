@@ -8,10 +8,9 @@ public class EvenDigitSum {
         }
 
         int sum = 0;
-        int digit;
 
         while (number != 0) {
-            digit = number % 10;
+            int digit = number % 10;
             if (digit % 2 == 0) {
                 sum += digit;
             }
