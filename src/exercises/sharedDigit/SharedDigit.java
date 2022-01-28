@@ -3,14 +3,13 @@ package exercises.sharedDigit;
 public class SharedDigit {
 
     public static boolean hasSharedDigit(int firstNumber, int secondNumber) {
-        if (firstNumber < 10 || firstNumber > 99 || secondNumber < 10 || secondNumber > 99) {
+        if (!isValid(firstNumber) || !isValid(secondNumber)) {
             return false;
         }
 
-        int digit;
         int original = secondNumber;
         while (firstNumber != 0) {
-            digit = firstNumber % 10;
+            int digit = firstNumber % 10;
             while (secondNumber != 0) {
                 if (digit == secondNumber % 10) {
                     return true;
@@ -22,5 +21,9 @@ public class SharedDigit {
         }
 
         return false;
+    }
+
+    public static boolean isValid(int number) {
+        return number > 10 && number < 99;
     }
 }
