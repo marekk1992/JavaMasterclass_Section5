@@ -2,29 +2,6 @@ package exercises.largestPrime;
 
 public class LargestPrime {
 
-    public static int getLargestPrimeVersion1(int number) {
-        if (number <= 1) {
-            return -1;
-        }
-
-        int largestPrime = 2;
-        for (int i = number; i > 2; i--) {
-            if (number % i == 0) {
-                int prime = 0;
-                for (int j = 2; j <= (long) Math.sqrt(i); j++) {
-                    if (i % j == 0) {
-                        prime = -1;
-                    }
-                }
-                if (prime == 0) {
-                    largestPrime = i;
-                    break;
-                }
-            }
-        }
-        return largestPrime;
-    }
-
     public static int getLargestPrimeVersion2(int number) {
         if (number <= 1) {
             return -1;
@@ -32,11 +9,9 @@ public class LargestPrime {
 
         int largestPrime = 2;
         for (int i = number; i > 2; i--) {
-            if (number % i == 0) {
-                if (isPrime(i)) {
-                    largestPrime = i;
-                    break;
-                }
+            if (number % i == 0 && isPrime(i)) {
+                largestPrime = i;
+                break;
             }
         }
         return largestPrime;
